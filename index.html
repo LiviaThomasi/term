@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+        <h2>Modificador de Temperatura</h2>
+   <div>
+  <label>Digite um valor para converter:</label>
+  <input id="c" placeholder="Digite aqui o valor"></input>
+  <label >Escalas de temperatura</label>
+  <select id="a">
+<option value="c">°C</option>
+<option value="F">°F</option>
+<option value="K">K</option>
+<option value="R">°R</option> 
+</select>
+    <input type="button" value="Calcular" id="button" onclick="calculo()">
+   </div>
+   <h3>Celcius: <input id="Celcius"></input></h3>
+   <h3>Farenheit: <input id="Farenheit"></input></h3>
+   <h3>Kelvin: <input id="Kelvin"></input></h3>
+   <h3>Rankine:<input id="Rankine"></input></h3>
+</section>
+<script>
+  
+        function calculo(){
+        let c
+        c=document.getElementById('c')
+        let pronto=parseInt(c.value)
+        let term
+        term=document.getElementById('a')
+        if(term.value=='c')
+       {
+        document.querySelector("#Celcius").value=pronto
+        let fa 
+        fa=((pronto*1.8)+32)
+        document.querySelector("#Farenheit").value=fa
+        let Kel
+        kel=(pronto+273)
+        document.querySelector("#Kelvin").value=kel
+        let ran
+        ran=(pronto+273.15)*1.8
+        document.querySelector("#Rankine").value=ran
+        }
+        else if(term.value=='F'){
+        document.querySelector("#Farenheit").value=pronto
+        let cel 
+        cel=(pronto-32)/1.8
+        document.querySelector("#Celcius").value=cel
+        let kel
+        kel=(pronto-32)*1.8+273
+        document.querySelector("#Kelvin").value=kel
+        let ran
+        ran=pronto+459.67
+        document.querySelector("#Rankine").value=ran
+        }
+        else if(term.value=="K"){
+        document.querySelector("#Kelvin").value=pronto
+       let Celcius
+       Celcius=pronto-273
+       document.querySelector("#Celcius").value=Celcius
+       let fa    
+       fa=pronto*1.8
+       document.querySelector("#Farenheit").value=fa
+       let ran
+        ran=pronto*1.8
+        document.querySelector("#Rankine").value=ran}
+       else if(term.value=="R"){
+        document.querySelector("#Rankine").value=pronto
+       let Celcius
+       Celcius=(pronto/8)-273.15
+       document.querySelector("#Celcius").value=Celcius
+       let fa 
+       fa=pronto-459.67
+       document.querySelector("#Farenheit").value=fa
+       let kel
+       kel=pronto/1.8
+       document.querySelector("#Kelvin").value=kel
+    }}
+</script>
+</body> 
+</html>
